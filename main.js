@@ -30,23 +30,7 @@ function studentGradeGenerator() {
   }
   
   // Challenge 3: Net Salary Calculator
-  
-  function netSalaryCalculator(basicSalary, benefits) {
-    const KRATax = calculateKRATax(basicSalary);
-    const NHIFDeductions = calculateNHIFDeductions(basicSalary);
-    const NSSFDeductions = calculateNSSFDeductions(basicSalary);
-    const grossSalary = basicSalary + benefits;
-    const netSalary = grossSalary - KRATax - NHIFDeductions - NSSFDeductions;
-    return {
-      grossSalary,
-      KRATax,
-      NHIFDeductions,
-      NSSFDeductions,
-      netSalary,
-    };
-  }
-  
-  function calculateKRATax(basicSalary) {
+    function calculateKRATax(basicSalary) {
     const taxableIncome = basicSalary - 16000;
     const taxRate = 0.16;
     const KRATax = taxableIncome * taxRate;
@@ -61,6 +45,21 @@ function studentGradeGenerator() {
   function calculateNSSFDeductions(basicSalary) {
     const NSSFDeductions = basicSalary * 0.08;
     return NSSFDeductions;
+  }
+
+ function netSalaryCalculator(basicSalary, benefits) {
+    const KRATax = calculateKRATax * basicSalary;
+    const NHIFDeductions = calculateNHIFDeductions * basicSalary;
+    const NSSFDeductions = calculateNSSFDeductions * basicSalary;
+    const grossSalary = basicSalary + benefits;
+    const netSalary = grossSalary - KRATax - NHIFDeductions - NSSFDeductions;
+    return {
+      grossSalary,
+      KRATax,
+      NHIFDeductions,
+      NSSFDeductions,
+      netSalary,
+    };
   }
   
   // Driver code
